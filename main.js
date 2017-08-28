@@ -285,30 +285,37 @@
 
 // let employee1 = new Employee('Jan', 'Kowalski', 'programista')
 
+// function Person(firstName, lastName) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+// }
+//
+// Person.prototype.sayHello = function() {
+//     return this.firstName + " " + this.lastName;
+// };
+//
+// function Employee(firstName, lastName, position) {
+//     Person.call(this, firstName, lastName);
+//     this.position = position;
+// }
+//
+// Employee.prototype = Object.create(Person.prototype);
+// Employee.prototype.constructor = Employee;
+//
+// Employee.prototype.sayHello = function() {
+//     var name = Person.prototype.sayHello.call(this);
+//
+//     return "Nazywam się " + name + " i pracuję jako " + this.position + ".";
+// };
+//
+// var employee1 = new Employee("Jan", "Kowalski", "programista");
+//
+// console.log( employee1.sayHello() );
 
-function Person(firstName, lastName) {
-    this.firstName = firstName;
-    this.lastName = lastName;
+let person1 = {name: 'rafał', age: 22}
+
+function zz ({name}) {
+	console.log(name)
+
 }
-
-Person.prototype.sayHello = function() {
-    return this.firstName + " " + this.lastName;
-};
-
-function Employee(firstName, lastName, position) {
-    Person.call(this, firstName, lastName);
-    this.position = position;
-}
-
-Employee.prototype = Object.create(Person.prototype);
-Employee.prototype.constructor = Employee;
-
-Employee.prototype.sayHello = function() {
-    var name = Person.prototype.sayHello.call(this);
-
-    return "Nazywam się " + name + " i pracuję jako " + this.position + ".";
-};
-
-var employee1 = new Employee("Jan", "Kowalski", "programista");
-
-console.log( employee1.sayHello() );
+zz(person1)
