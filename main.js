@@ -312,10 +312,40 @@
 //
 // console.log( employee1.sayHello() );
 
-let person1 = {name: 'rafał', age: 22}
+// let person1 = {name: 'rafał', age: 22}
+//
+// function zz ({name}) {
+// 	console.log(name)
+//
+// }
+// zz(person1)
 
-function zz ({name}) {
-	console.log(name)
 
-}
-zz(person1)
+this.zz = '13213'
+let person1 = {
+    firstName: "Jan",
+    lastName: "Kowalski",
+    dd(){
+		let sayHello =  () => {
+			console.log(this)
+			return this.firstName + " " + this.lastName;
+		}
+		sayHello()
+
+	}
+
+};
+
+let person2 = {
+    firstName: "Jan",
+    lastName: "Kowalski",
+    sayHello: function() {
+let self = this;
+        setTimeout(function () {
+        	console.log(self)
+            console.log(this.firstName + " " + this.lastName);
+        }, 10);
+
+    }
+};
+person2.sayHello()
