@@ -1,294 +1,187 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
-    <title>Node.js</title>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+	<title>Node.js</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+	<link rel="stylesheet" href="node_modules/prismjs/themes/prism.css">
+	<script src="node_modules/prismjs/prism.js"></script>
 </head>
-<body class="shower list">
+<body class="shower full">
 <header class="caption">
-    <h1>Node.js</h1>
+	<h1>Node.js</h1>
 </header>
 <section class="slide" id="cover">
-
-    <img src="pictures/nodejs-1280x1024.png" alt="" class="cover">
-    <!--
+	<img src="pictures/16407404782_1be42bc8f8_o_d.png" alt="" class="cover">
+	<!--
         To apply styles to the certain slides
         set slide ID to get needed elements
         -->
-    <style>
-        #cover {
-            background-color: black;
+	<style>
+		.slide pre code {
+			width: 100%;
+		}
 
-        }
+		#cover {
+			background-color: #FBDE34;
 
-        #cover h2 {
-            margin: 30px 0 0;
-            color: #FFF;
-            text-align: center;
-            font-size: 70px;
-        }
+		}
 
-        #cover p {
-            margin: 10px 0 0;
-            text-align: center;
-            color: #FFF;
-            font-style: italic;
-            font-size: 20px;
-        }
+		#cover h2 {
+			margin: 30px 0 0;
+			color: #FFF;
+			text-align: center;
+			font-size: 70px;
+		}
 
-        #cover p a {
-            color: #FFF;
-        }
-    </style>
+		#cover p {
+			margin: 10px 0 0;
+			text-align: center;
+			color: #FFF;
+			font-style: italic;
+			font-size: 20px;
+		}
+
+		#cover p a {
+			color: #FFF;
+		}
+	</style>
 </section>
 
 <section class="slide">
-    <h2><span>Czym jest Node.js ?</span></h2>
-    <br>
-    <p class="">sdsdsNode.js to otwarte, wieloplatformowe środowisko uruchomieniowe dla aplikacji napisanych w języku
-        JavaScript.</p>
-    <br>
-    <p class=""> Dzięki wykorzystaniu silnika V8, pozwala tworzyć aplikacje uruchamiane poza przeglądarką
-        internetową.</p>
+	<h2><span>EcmaScript</span></h2>
+	<ul style="margin-left:25px;">
+		<li>Język oraz specyfikacja do programowania aplikacji WWW po stronie klienta inspirowana językami C, Java,
+			Python czy Perl
+		</li>
+		<li>opracowana przez Brendan`a Eich`a z NetScape w 1997</li>
+		<li>Najnowsza wersja ES6 (w przygotowaniu jest już ES 7)</li>
+		<li>Najpopularniejsze implementacje: JavaScript, TypeScript, ActionScript</li>
+	</ul>
 
-    <style>
+	<style>
 
-        h2 span {
-            color: white;
-            background-color: #6DBF4F;
-            padding: 5px 20px 5px 20px;
-        }
-    </style>
+		h2 span {
+			color: black;
+			background-color: #FBDE34;
+			padding: 5px 20px 5px 20px;
+		}
+	</style>
 </section>
 
 
 <section class="slide">
-    <h2><span>Zalety</span></h2>
+	<h2><span>Zmienne w EcmaScript6</span></h2>
+	<ul style="margin-left:25px;">
+		<li>Deklaracje zmiennych w JavaScript`cie może być myląca dla osób programujących w innych, gorszych, mniej
+			popularnych, wymierających (niepotrzebne skreślić ) językach :)
+		</li>
+		<li>Klasycznie zmienne tworzone są w miejscu ich deklaracji</li>
+		<li>W ES6 mamy możliwość zadeklarowania zmiennej na kilka różnych sposobów, z których każdy ma przydatne
+			właściwości
+		</li>
+	</ul>
 
-    <ul style="margin-left:25px;">
-        <li>szybkość</li>
-        <li>możliwość obsłużenia dużej liczby zapytań na sekundę</li>
-        <li>nieblokujące operacje <span>I/O</span></li>
-        <li>małe zużycie pamięci</li>
-        <li>ogromna liczba modułów stworzonych przez społeczność</li>
-    </ul>
-
-    <style>
-
-        h2 span {
-            color: white;
-            background-color: #6DBF4F;
-            padding: 5px 20px 5px 20px;
-        }
-
-        li:before {
-            color: #6DBF4F !important; /* or whatever color you prefer */
-        }
-
-        li span {
-            color: #B51124;
-        }
-    </style>
 </section>
 
 <section class="slide">
-    <h2><span>Zastosowanie</span></h2>
+	<h2><span>Standardowa deklaracja "var"</span></h2>
 
-    <ul style="margin-left:25px;">
-        <li>aplikacje sieciowe typu <span>real-time</span></li>
-        <li>aplikacje nie wymagające dużych zasobów CPU</li>
-        <li>Tworzenie <span>API</span> typu <span>REST</span></li>
-        <li>Aplikacje typu <span>CLI</span></li>
-        <li>aplikacje desktopowe z użyciem HTML, CSS, JS, <span>ELECTRON</span></li>
-    </ul>
 
-    <style>
+	<p>Zmienne w czystym JavaScript`cie (ES5) deklarowane są za pomocą słowa kluczowego <b>var</b> tworzone są na samym
+		początku definicji funkcji niezależnie od miejsca ich deklaracji w kodzie. Zjawisko to nosi nazwę
+		<b>hoisting`u</b></p>
+	<br>
+	<img src="pictures/1.png" alt="" style="width: 80%">
+</section>
 
-        h2 span {
-            color: white;
-            background-color: #6DBF4F;
-            padding: 5px 20px 5px 20px;
-        }
 
-        li:before {
-            color: #6DBF4F !important; /* or whatever color you prefer */
-        }
+<section class="slide">
+	<style>
+		pre code {
+			margin: 0 auto;
+		}
+	</style>
+	<h2><span>Zasięg zmiennych</span></h2>
 
-        li span {
-            color: #B51124;
-        }
-    </style>
+
+	<p>Zmienne deklarowane przy pomocy słowa kluczowego <b>var</b> mają zasięg funkcyjny, natomiast zmienne deklarowane
+		przy pomocy słowa kluczowego <b>let</b> mają zasięg blokowy (zwany również leksykalnym).</p>
+
+	<pre style="font-size: 12px; max-width: 40%; margin: 0 auto;" data-src="js/const.js"></pre>
+
 </section>
 
 <section class="slide">
-    <h2><span>Historia Node.js</span></h2>
-    <p>Platforma ta powstała w <span>2009</span> roku, a jej twórcą jest <span>Ryan Dahl</span></p>
+	<h2><span>Stałe</span></h2>
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/ztspvPYybIY" frameborder="0"
-            allowfullscreen></iframe>
+	<p>Składnia JavaScript`u została wzbogacona o jeszcze jeden sposób deklaracji zmiennych, przy pomocy słowa
+		kluczowego <b>const</b></p>
 
-    <style>
+	<ul style="margin-left:25px;">
+		<li>Podobne właściwości do <b>let</b> odnośnie zasięgu oraz miejsca utworzenia</li>
+		<li>Brak mozliwości późniejszego nadpisania, inicjalizacja nastepuje od razy przy deklaracji</li>
+	</ul>
+</section>
 
-        h2 span {
-            color: white;
-            background-color: #6DBF4F;
-            padding: 5px 20px 5px 20px;
-        }
 
-        li:before {
+<section class="slide">
+	<h2><span>Domyślne wartości argumentów funkcji</span></h2>
 
-            color: #6DBF4F !important; /* or whatever color you prefer */
-        }
+	<ul style="margin-left:25px;">
+		<li>Krótszy sposób przypisania domyslnych wartości argumentów funkcji</li>
+		<li>Wartość <b>undefined</b> traktowana jako brak, <b>null jest OK</b></li>
+	</ul>
 
-        li span {
+	<pre style="font-size: 12px;" data-src="js/defvariableEs6.js"></pre>
 
-            color: #B51124;
-        }
+</section>
 
-        p span {
-            color: #6DBF4F;
 
-        }
-    </style>
+<section class="slide">
+	<h2><span>Argument Spread</span></h2>
+	<ul style="margin-left:25px;">
+		<li>Rozkłada tablicę na niezależne elementy</li>
+		<li>Ułatwia przekazywanie całych tablic jako argumentów do funkcji</li>
+	</ul>
+	<pre style="font-size: 12px;" data-src="js/spread.js"></pre>
 </section>
 
 <section class="slide">
-    <h4 class="new"><span>2010</span></h4>
-    <p>pierwsza wersja package managera <span>npm</span></p>
-
-    <h4 class="new"><span>2011</span></h4>
-    <p><span>Microsoft</span> wraz z firmą <span>Joyent</span> wypuszcza pierwszą wersję <span>Node.js</span> dla Windows</p>
-
-    <h4 class="new"><span>2012</span></h4>
-    <p><span>Ryan Dahl</span> odsuwa się od projektu i przekazuje go w ręce twórców <span>npm</span></p>
-
-    <style>
-        p{margin-bottom: 0px !important;}
-        h4.new {
-            margin-bottom: 0px;
-            margin-top: 0px;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        h2 span {
-            color: white;
-            background-color: #6DBF4F;
-            padding: 5px 20px 5px 20px;
-        }
-
-        li:before {
-            content: '';
-            color: #6DBF4F !important; /* or whatever color you prefer */
-        }
-
-        li span {
-
-            color: #B51124;
-        }
-
-        h4 span {
-            color: #6DBF4F;
-
-        }
-
-        p > span {
-            color: #B51124;
-        }
-        p > span.green {
-            color: #6DBF4F;
-        }
-    </style>
+	<h2><span>Pozostałe argumenty = '...'</span></h2>
+	<ul style="margin-left:25px;">
+		<li>Elegancki sposób deklaracji, nieograniczonej ilości argumentów przy pomocy operatora ...</li>
+		<li>Specjalny argument służy jako kontener na pozostałe argumenty</li>
+		<li>Może występować tylko raz, jako ostatni argument</li>
+	</ul>
+	<pre style="font-size: 12px;" data-src="js/rest.js"></pre>
 </section>
 
 <section class="slide">
-    <h4 class="new"><span>2014</span></h4>
-    <p>powstaje bliźniaczy projekt o nazwie <span>io.js</span>, który zakłada szybszy cykl wydawania nowych wersji, w
-        tym za każdym razem, gdy Google wyda nową wersję silnika <span>V8</span></p>
-    <p>zmienia się również lider projektu Node.js</p>
-
-
-    <h4 class="new"><span>2015</span></h4>
-    <p>powstaje <span>Node.js Foundation</span> i połączenie wersji 0.12 <span class="green">Node.js</span> z wersją
-        <span>3.3</span>
-        <span class="green">io.js</span> i wydanie nowej wersji <span class="green">Node.js</span> oznaczonej numerem
-        <span>4.0</span></span></p>
-
-    <style>
-        h4.new {
-            margin-bottom: 0px;
-            margin-top: 0px;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        h2 span {
-            color: white;
-            background-color: #6DBF4F;
-            padding: 5px 20px 5px 20px;
-        }
-
-        li:before {
-            content: '';
-            color: #6DBF4F !important; /* or whatever color you prefer */
-        }
-
-        li span {
-
-            color: #B51124;
-        }
-
-        h4 span {
-            color: #6DBF4F;
-
-        }
-
-        p > span {
-            color: #B51124;
-        }
-
-        p > span.green {
-            color: #6DBF4F;
-        }
-    </style>
+	<h2><span>Destruktory</span></h2>
+	<ul style="margin-left:25px;">
+		<li>Technika <b>dekompozycji obiektów oraz tablic</b></li>
+		<li>Schludniejsze operacje na obiektach</li>
+	</ul>
+	<pre style="font-size: 12px;" data-src="js/destruktory.js"></pre>
 </section>
 
 <section class="slide">
-    <h2><span>Kto korzysta z Node.js?</span></h2>
-
-    <ul style="margin-left:25px;">
-        <li>Yahoo!</li>
-        <li>PayPal</li>
-        <li>Netflix</li>
-        <li>Medium</li>
-        <li>LinkedIn</li>
-        <li>Uber</li>
-    </ul>
-
-    <style>
-
-        h2 span {
-            color: white;
-            background-color: #6DBF4F;
-            padding: 5px 20px 5px 20px;
-        }
-
-        li:before {
-            color: #6DBF4F !important; /* or whatever color you prefer */
-        }
-    </style>
+	<h2><span>Funkcje lambda</span></h2>
+	<p>Funkcje lambda, zwane również funkcjami strzałkowymi <b>(arrow functions)</b> są typem deklaracji funkcji o
+		specjalnych cechach.</p>
+	<ul style="margin-left:25px;">
+		<li>Cechuje je krótsza, czytelniejsza składnia</li>
+		<li>sa anonimowe oraz tworzone bez operatora <b>new</b></li>
+		<li>nie posiadają prototypu</li>
+		<li>dziewdzicza this po najbliższej standardowej funkcji i jej leksykalnym kontekscie</li>
+	</ul>
 </section>
-
 
 <p class="badge">
-    <a href="https://github.com/shower/shower">Fork me on GitHub</a>
+	<a href="https://github.com/shower/shower">Fork me on GitHub</a>
 </p>
 <!--
     To hide progress bar from entire presentation
@@ -296,7 +189,7 @@
     -->
 <div class="progress"></div>
 <script src="shower/shower.min.js"></script>
-<!-- Copyright © 2015 Yours Truly, Famous Inc. -->
-<!-- Photos by John Carey, fiftyfootshadows.net -->
+
+
 </body>
 </html>
